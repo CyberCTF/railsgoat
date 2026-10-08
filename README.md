@@ -14,7 +14,7 @@ its own Dockerfile, on a pinned Ruby image.
 
 ```bash
 isoloom generate
-isoloom up docker
+isoloom run docker
 ```
 
 Then open http://localhost:3000/ and sign up, or log in as `jmmastey@metacorp.com` /
