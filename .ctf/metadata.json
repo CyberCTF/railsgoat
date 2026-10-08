@@ -1,0 +1,9 @@
+{
+  "title": "OWASP RailsGoat",
+  "description": "A deliberately vulnerable Ruby on Rails employee portal (MetaCorp) built to teach the OWASP Top 10 in a Rails context, with built-in tutorials for each flaw: SQL injection, command injection, insecure direct object references, mass assignment, cross-site scripting and more.",
+  "question": "Exploit the OWASP Top 10 flaws in the MetaCorp portal.",
+  "category": "WEB",
+  "difficulty": 2,
+  "evidence_kind": "SECRET",
+  "capabilities": ["sql-injection", "cross-site-scripting", "insecure-direct-object-reference", "mass-assignment", "command-injection"]
+}

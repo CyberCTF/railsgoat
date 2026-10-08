@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://www.isoloom.com/schema/v1.json
+# OWASP RailsGoat (by the OWASP RailsGoat contributors) as an Isoloom spec: the upstream source,
+# vendored unchanged in build/web/app/, built by its Dockerfile with a pinned Ruby image and its
+# SQLite database set up at build time.
+# `isoloom generate`, then `isoloom up docker`.
+version: 1
+name: railsgoat
+
+networks:
+  lab: { cidr: 10.60.11.0/24, internet: false }
+
+machines:
+  web:
+    networks: { lab: 10 }
+    services: [{ port: 3000, name: web, http: true, publish: 3000 }]
+    resources: { cpus: 1, memory_mb: 1024 }
+    docker:
+      build: build/web
+
+checks:
+  - name: the login page answers
+    http: http://web:3000/
+    wait: 180
+  - name: the signup page answers
+    http: http://web:3000/signup
+  - name: a seeded user logs in
+    script: checks/login.sh
+
+message: |
+  RailsGoat answers at http://localhost:{{ machines.web.services.0.publish }}/. Sign up or log in
+  as a seeded user (jmmastey@metacorp.com / railsgoat!); the tutorials in the app menu walk
+  through each OWASP Top 10 flaw.
