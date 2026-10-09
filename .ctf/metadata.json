@@ -4,6 +4,5 @@
   "question": "Exploit the OWASP Top 10 flaws in the MetaCorp portal.",
   "category": "WEB",
   "difficulty": 2,
-  "evidence_kind": "SECRET",
-  "capabilities": ["sql-injection", "cross-site-scripting", "insecure-direct-object-reference", "mass-assignment", "command-injection"]
+  "evidence_kind": "SECRET"
 }
