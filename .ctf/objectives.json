@@ -1,0 +1,41 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Log in to the MetaCorp portal and abuse the Benefit Forms feature to read /ctf/flag from the server.",
+      "check": { "evidence": "SECRET", "format": "FLAG{%s}" },
+      "dev": "FLAG{dev-railsgoat}",
+      "hints": [
+        "Benefit Forms lets you download the forms HR provides: look at the parameters of the download link.",
+        "The download action builds an object from a class name you send and serves the path you send. The upload's backup option is a second way in (a shell command)."
+      ],
+      "steps": [
+        {
+          "key": "feature",
+          "title": "Find the feature",
+          "prompt": "Which portal page lets you download and upload documents?",
+          "check": { "answer": ["benefit forms", "benefits", "benefit_forms"] }
+        },
+        {
+          "key": "parameter",
+          "title": "Find the input",
+          "prompt": "Which parameter of the download request holds the path of the file served?",
+          "check": { "answer": ["name"] }
+        },
+        {
+          "key": "type",
+          "title": "Find the class switch",
+          "prompt": "Which parameter names the Ruby class the controller instantiates with that path?",
+          "check": { "answer": ["type"] }
+        },
+        {
+          "key": "class",
+          "title": "Name the flaw",
+          "prompt": "Which vulnerability class lets you download any file the server can read?",
+          "check": { "answer": ["path traversal", "arbitrary file download", "arbitrary file read", "insecure direct object reference", "idor", "directory traversal"] }
+        }
+      ]
+    }
+  ]
+}
