@@ -1,8 +1,11 @@
 {
+  "project_name": "cyberlabs-railsgoat",
+  "slug": "railsgoat",
   "title": "OWASP RailsGoat",
   "description": "A deliberately vulnerable Ruby on Rails employee portal (MetaCorp) built to teach the OWASP Top 10 in a Rails context, with built-in tutorials for each flaw: SQL injection, command injection, insecure direct object references, mass assignment, cross-site scripting and more.",
-  "question": "Abuse the Benefit Forms download (or its upload's command injection) to read /ctf/flag on the server.",
-  "category": "WEB",
+  "category": "web",
   "difficulty": 2,
-  "evidence_kind": "SECRET"
+  "evidence_kind": "SECRET",
+  "capabilities": [],
+  "question": "Abuse the Benefit Forms download (or its upload's command injection) to read /ctf/flag on the server."
 }
